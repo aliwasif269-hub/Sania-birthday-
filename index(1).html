@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Sania 💗</title>
+<style>
+:root{--pink:#ff6f9f;--rose:#ffb4c9;--cream:#fff8fb;--ink:#533746}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(circle at top,#ffe0eb,#fff8fb 55%,#ffeaf2);min-height:100vh;overflow-x:hidden}
+main{max-width:760px;margin:auto;padding:28px 18px 60px;text-align:center;position:relative;z-index:1}
+.eyebrow{letter-spacing:3px;text-transform:uppercase;font:600 11px Arial,sans-serif;color:#c34f7c}
+h1{font-size:clamp(38px,9vw,68px);line-height:1.04;margin:14px 0;color:#b63d70}
+.sub{font-size:18px;line-height:1.7;max-width:580px;margin:0 auto 22px}
+.heart{font-size:40px;animation:beat 1.2s infinite;display:inline-block}
+@keyframes beat{50%{transform:scale(1.18)}}
+.card{background:#ffffffc9;border:1px solid #ffd1e0;border-radius:24px;padding:24px;margin:18px auto;box-shadow:0 12px 35px #b94c7412;backdrop-filter:blur(5px)}
+button{border:0;border-radius:999px;background:linear-gradient(135deg,#ff6f9f,#d9487d);color:white;padding:14px 22px;font-weight:bold;font-size:15px;box-shadow:0 8px 18px #d9487d30;cursor:pointer;margin:7px}
+button.secondary{background:#fff;color:#b63d70;border:1px solid #ffc3d7;box-shadow:none}
+.letter{display:none;text-align:left;line-height:1.9;font-size:17px;white-space:pre-line}
+.letter.show{display:block;animation:rise .7s ease}
+@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.gift{font-size:70px;cursor:pointer;display:inline-block;transition:transform .35s}
+.gift:hover{transform:rotate(-8deg) scale(1.08)}
+#surprise{display:none;font-size:20px;line-height:1.7;color:#a12d62}
+#surprise.show{display:block;animation:rise .8s ease}
+.floating{position:fixed;bottom:-40px;opacity:.7;pointer-events:none;animation:floatUp linear forwards;z-index:0}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+footer{font:12px Arial,sans-serif;color:#9c7183;margin-top:30px}
+.song-note{font:13px Arial,sans-serif;color:#9c7183;line-height:1.6}
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">A little surprise, made with love</div>
+  <div class="heart">💗</div>
+  <h1>Happy Birthday,<br>Sania!</h1>
+  <p class="sub">Some people make ordinary days feel special just by being in them. Today is your day, and I hope it brings you the same warmth you bring to the people around you.</p>
+  <div class="card">
+    <div class="gift" id="gift" role="button" tabindex="0" aria-label="Open your gift">🎁</div>
+    <p><strong>Your little birthday surprise</strong></p>
+    <p class="song-note">Tap the gift to reveal your message ✨</p>
+    <button onclick="openGift()">Open your gift 🎀</button>
+    <div id="surprise">
+      <p>🌷 A wish for your new year of life 🌷</p>
+      May your days be filled with peace, laughter, kind people, and little moments that make you smile. You deserve happiness that feels calm, genuine, and lasting.
+    </div>
+  </div>
+  <div class="card">
+    <h2 style="color:#b63d70;margin-top:0">A birthday note for you</h2>
+    <p>Not every feeling needs big words. Sometimes, it is enough to wish someone well from the heart.</p>
+    <button onclick="showLetter()">Read your letter 💌</button>
+    <button class="secondary" onclick="hideLetter()">Close letter</button>
+    <div class="letter" id="letter">Dear Sania,
+
+Happy Birthday! ❤️
+
+I hope this new chapter of your life brings you peace in your heart, confidence in your steps, and countless reasons to smile. May the things you quietly wish for find their way to you, and may you always be surrounded by people who respect you, care for you, and make life feel lighter.
+
+Whatever this year brings, I hope you keep believing in yourself and never forget how much goodness you deserve. Today is a reminder to celebrate you — your presence, your journey, and all the beautiful things still waiting ahead.
+
+Have the happiest birthday. May Allah bless you with health, happiness, success, and peace always. Ameen. 🤍
+
+With warm wishes,
+Someone who genuinely wishes the best for you 💗</div>
+  </div>
+  <div class="card">
+    <h2 style="color:#b63d70;margin-top:0">One last little wish ✨</h2>
+    <p>Take a breath, make a wish, and let this year surprise you in the best ways.</p>
+    <button onclick="wish()">Make a wish 🌙</button>
+    <p id="wishText" style="display:none;line-height:1.7">May the wish you keep closest to your heart come true at the right time. 💫</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0;color:#b63d70">Your birthday song 🎶</h3>
+    <p class="song-note">Add the song file named <b>song.mp3</b> in this same folder. Use only a song file you have permission to use.</p>
+    <audio id="audio" controls loop style="width:100%">
+      <source src="song.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+    <p class="song-note">Song: “Tum Mile Dil Khile” — Arijit Singh version (add the audio file yourself).</p>
+  </div>
+  <footer>Made with care • Happy Birthday, Sania 💗</footer>
+</main>
+<script>
+function openGift(){document.getElementById('surprise').classList.add('show');document.getElementById('gift').textContent='💝';for(let i=0;i<18;i++)setTimeout(makeHeart,i*90)}
+document.getElementById('gift').addEventListener('click',openGift);
+document.getElementById('gift').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift()}});
+function showLetter(){document.getElementById('letter').classList.add('show')}
+function hideLetter(){document.getElementById('letter').classList.remove('show')}
+function wish(){document.getElementById('wishText').style.display='block';for(let i=0;i<12;i++)setTimeout(makeHeart,i*110)}
+function makeHeart(){const el=document.createElement('div');el.className='floating';el.textContent=['💗','💖','✨','🌸'][Math.floor(Math.random()*4)];el.style.left=Math.random()*100+'vw';el.style.animationDuration=(4+Math.random()*4)+'s';el.style.fontSize=(16+Math.random()*22)+'px';document.body.appendChild(el);setTimeout(()=>el.remove(),8500)}
+setInterval(()=>{if(Math.random()>.45)makeHeart()},1500);
+</script>
+</body>
+</html>
